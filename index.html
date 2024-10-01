@@ -23,5 +23,53 @@
         document.getElementById("myImage").src = "bulb-off.png";
       }
     </script>
+    <br />
+    <br />
+    <!-- question 2 -->
+    <h3>Diplay currentTime</h3>
+    <div class="time-display" id="time">
+      <p id="time-result"></p>
+      <button onclick="currentTime()">Time</button>
+    </div>
+    <script>
+      function currentTime() {
+        let currentDate = new Date();
+        let hours = currentDate.getHours();
+        let minutes = currentDate.getMinutes();
+        let seconds = currentDate.getSeconds();
+
+        let ampm = hours >= 12 ? "PM" : "AM";
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        let currentTime = `${hours}:${minutes}:${seconds} ${ampm}`;
+        document.getElementById("time-result").textContent = currentTime;
+      }
+    </script>
+    <!-- question 3 -->
+    <br />
+    <br />
+    <h3>Remove the First and Last Character</h3>
+
+    <label for="inputString">Enter a string:</label>
+    <input
+      type="text"
+      id="inputString"
+      name="inputString"
+      placeholder="Enter a string"
+    />
+    <button onclick="removeFirstLast()">Remove Characters</button>
+
+    <p id="string-result"></p>
+    <script>
+      function removeFirstLast() {
+        let str = document.getElementById("inputString").value;
+        document.getElementById("string-result").innerHTML = str.substr(
+          1,
+          str.length - 2
+        );
+      }
+    </script>
   </body>
 </html>
